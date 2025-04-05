@@ -1,11 +1,9 @@
 package com.example.Task_Manager.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
-import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Data
@@ -15,5 +13,17 @@ import java.time.LocalDateTime;
 @Table(name = "tasks")
 
 public class Task {
+    @Id // Marks this field as the primary key.
+    @GeneratedValue(strategy = GenerationType.IDENTITY)  // Auto-generates the ID.
+    private Long id;
+
+    @Column(nullable = false)
+    private String title;
+
+    private String description;
+
+    private String status;
+
+    private LocalDateTime createdAt = LocalDateTime.now();
 
 }
