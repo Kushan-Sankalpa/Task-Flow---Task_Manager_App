@@ -12,7 +12,7 @@
 	<artifactId>Task_Manager</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Task_Manager</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Task Manager App with Spring Boot, JWT, and MySQL</description>
 	<url/>
 	<licenses>
 		<license/>
