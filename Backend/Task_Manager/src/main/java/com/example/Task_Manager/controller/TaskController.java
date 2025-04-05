@@ -26,4 +26,19 @@ public class TaskController {
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
+
+    @PostMapping
+    public Task createTask(@RequestBody Task task) {
+        return taskService.createTask(task);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Task> updateTask(@PathVariable Long id, @RequestBody Task taskDetails) {
+        try {
+            Task updatedTask = taskService.updateTask(id, taskDetails);
+            return ResponseEntity.ok(updatedTask);
+        } catch (RuntimeException ex) {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
