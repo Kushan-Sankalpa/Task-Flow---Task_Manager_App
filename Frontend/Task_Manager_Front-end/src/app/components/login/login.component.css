@@ -1,26 +1,237 @@
+:root {
+  --primary-color: #4361ee;
+  --primary-light: #4cc9f0;
+  --secondary-color: #7209b7;
+  --text-color: #2b2d42;
+  --light-text: #8d99ae;
+  --background: #f8f9fa;
+  --white: #ffffff;
+  --error-color: #ef233c;
+  --success-color: #06d6a0;
+}
+
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--background);
+  position: relative;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  z-index: 10;
+  position: relative;
+}
+
 .login-header {
-  margin-bottom: 1rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.app-logo {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.app-logo svg {
+  width: 30px;
+  height: 30px;
 }
 
 .login-header h1 {
-  font-size: 2.5rem;
+  color: var(--text-color);
+  font-size: 1.8rem;
+  font-weight: 700;
   margin-bottom: 0.5rem;
 }
 
-.login-header p {
-  font-size: 1.1rem;
+.tagline {
+  color: var(--light-text);
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
-.login-container {
-  max-width: 400px;
-  margin: 5rem auto;
-  padding: 2rem;
-  border: 1px solid #ccc;
+.login-form h2 {
+  color: var(--text-color);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-with-icon svg {
+  position: absolute;
+  left: 12px;
+  width: 18px;
+  height: 18px;
+  color: var(--light-text);
+}
+
+.input-with-icon input {
+  width: 100%;
+  padding: 12px 12px 12px 40px;
+  border: 1px solid #e9ecef;
   border-radius: 8px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  background-color: #f8f9fa;
 }
 
-h2 {
-  font-size: 2rem;
+.input-with-icon input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+  background-color: var(--white);
+}
+
+.error-message {
+  color: red; /* Always red */
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.5rem 0;
+  font-size: 0.85rem;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  color: var(--light-text);
+}
+
+.remember-me input {
+  margin-right: 0.5rem;
+}
+
+.login-button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #3d56b2, #650ea8); /* Darker gradient */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.login-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+}
+
+.login-button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.login-button:disabled {
+  background: #adb5bd;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+
+
+.login-button svg {
+  width: 18px;
+  height: 18px;
+}
+
+.signup-link {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--light-text);
+  font-size: 0.9rem;
+}
+
+.signup-link a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+.login-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(67, 97, 238, 0.1), rgba(76, 201, 240, 0.1));
+}
+
+.shape-1 {
+  width: 300px;
+  height: 300px;
+  top: -100px;
+  left: -100px;
+}
+
+.shape-2 {
+  width: 200px;
+  height: 200px;
+  bottom: -50px;
+  right: -50px;
+}
+
+.shape-3 {
+  width: 150px;
+  height: 150px;
+  top: 50%;
+  right: 20%;
 }
