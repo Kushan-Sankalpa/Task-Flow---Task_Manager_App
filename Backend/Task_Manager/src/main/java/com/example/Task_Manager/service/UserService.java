@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-@Service   // Marks this as a service class.
+@Service
 public class UserService {
     @Autowired
     private UserRepository userRepository;
@@ -14,8 +14,13 @@ public class UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    // Check if a user with the given username already exists.
+    public boolean existsByUsername(String username) {
+        return userRepository.findByUsername(username).isPresent();
+    }
+
+    // Register a new user after encoding the password.
     public User registerUser(User user) {
-        // Encrypt the password before saving for security.
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
     }

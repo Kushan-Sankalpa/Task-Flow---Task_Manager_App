@@ -5,12 +5,14 @@ import com.example.Task_Manager.security.JwtUtil;
 import com.example.Task_Manager.security.CustomUserDetailsService;
 import com.example.Task_Manager.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.*;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
-@RestController   // Handles HTTP requests.
-@RequestMapping("/api/auth")  // Base URL for authentication.
+@RestController
+@RequestMapping("/api/auth")
 @CrossOrigin(origins = "*")
 public class AuthController {
 
@@ -28,9 +30,17 @@ public class AuthController {
 
     // Register a new user.
     @PostMapping("/register")
-    public String register(@RequestBody User user) {
+    public ResponseEntity<?> register(@RequestBody User user) {
+        // Check if user already exists using the service.
+        if (userService.existsByUsername(user.getUsername())) {
+            // Return HTTP 409 Conflict with a custom error message.
+            return ResponseEntity.status(HttpStatus.CONFLICT)
+                    .body("User already exists. Please try a different username.");
+        }
+
+        // Otherwise, register the new user.
         userService.registerUser(user);
-        return "User registered successfully";
+        return ResponseEntity.ok("User registered successfully");
     }
 
     // Log in and get a JWT token.

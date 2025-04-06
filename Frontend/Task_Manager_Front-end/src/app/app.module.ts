@@ -6,13 +6,15 @@ import { AppRoutingModule } from './app-routing.module'; // Handles navigation (
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 import { TaskListComponent } from './components/task-list/task-list.component';
 import { TaskFormComponent } from './components/task-form/task-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,        // The root component
-    LoginComponent,      // Your Login component
+    LoginComponent,
+    RegisterComponent,         // Your Login component
     TaskListComponent,   // Example: shows a list of tasks
     TaskFormComponent    // Example: form for adding/editing tasks
   ],
