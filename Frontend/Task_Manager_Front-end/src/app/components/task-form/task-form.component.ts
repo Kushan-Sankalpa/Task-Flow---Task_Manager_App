@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class TaskFormComponent implements OnInit {
   taskForm: FormGroup;      
   isEditMode: boolean = false; 
-  taskId: number;           
+  taskId!: number;           
 
   constructor(
     private fb: FormBuilder,

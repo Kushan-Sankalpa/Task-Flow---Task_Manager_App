@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 // Define an interface for a Task.
 export interface Task {
-  id?: number;
+  id: number;
   title: string;
   description?: string;
   status?: string;
