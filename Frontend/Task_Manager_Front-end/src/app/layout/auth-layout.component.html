@@ -1,19 +1,24 @@
 <div class="d-flex" id="wrapper">
     <!-- Sidebar -->
-    <div id="sidebar-wrapper" class="bg-light border-end">
+    <div id="sidebar-wrapper">
       <div class="sidebar-heading text-center py-4 fs-5 fw-bold border-bottom">
         Task Manager
       </div>
-      <div class="list-group list-group-flush my-3">
-        <a routerLink="/dashboard" class="list-group-item list-group-item-action bg-transparent fw-bold">
-          <i class="bi bi-speedometer2 me-2"></i> Dashboard
+      <div class="sidebar-links">
+        <a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="sidebar-link">
+          <i class="fa-solid fa-table-cells-large me-2"></i>
+          <span>Dashboard</span>
         </a>
-        <a routerLink="/tasks" class="list-group-item list-group-item-action bg-transparent fw-bold">
-          <i class="bi bi-card-checklist me-2"></i> Task List
+        <a routerLink="/tasks" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="sidebar-link">
+          <i class="fa-solid fa-list-check me-2"></i>
+          <span>Task List</span>
         </a>
       </div>
       <div class="mt-auto text-center p-3">
-        <button class="btn btn-danger" (click)="logout()">Logout</button>
+        <button class="logout-button" (click)="logout()">
+          <i class="fa-solid fa-arrow-left me-2"></i>
+          Log out
+        </button>
       </div>
     </div>
   
@@ -21,7 +26,6 @@
     <div id="page-content-wrapper" class="flex-grow-1">
       <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
         <div class="container-fluid">
-         
           <div class="ms-auto d-flex align-items-center">
             <i class="bi bi-person-circle fs-4 me-2"></i>
             <span>{{ username }}</span>
@@ -29,7 +33,7 @@
         </div>
       </nav>
       <div class="container-fluid p-3">
-        <!-- Only one router outlet here -->
+        <!-- Child routes are rendered here -->
         <router-outlet></router-outlet>
       </div>
     </div>
