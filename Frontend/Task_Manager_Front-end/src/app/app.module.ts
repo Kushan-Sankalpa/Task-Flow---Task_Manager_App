@@ -1,22 +1,24 @@
+// src/app/app.module.ts
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';  // For building reactive forms.
-import { HttpClientModule } from '@angular/common/http'; // To make HTTP requests.
-import { AppRoutingModule } from './app-routing.module'; // Handles navigation (routing).
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { TaskListComponent } from './components/task-list/task-list.component';
 import { TaskFormComponent } from './components/task-form/task-form.component';
+import { TokenInterceptor } from './services/token.interceptor';
 
 @NgModule({
   declarations: [
-    AppComponent,        // The root component
+    AppComponent,
     LoginComponent,
-    RegisterComponent,         // Your Login component
-    TaskListComponent,   // Example: shows a list of tasks
-    TaskFormComponent    // Example: form for adding/editing tasks
+    RegisterComponent,
+    TaskListComponent,
+    TaskFormComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +26,9 @@ import { TaskFormComponent } from './components/task-form/task-form.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
