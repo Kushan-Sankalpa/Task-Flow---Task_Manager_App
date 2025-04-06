@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/tasks")   // Base URL for all task-related requests.
-@CrossOrigin(origins = "*")      // Allows requests from any domain as an example from my Front end angular app
-
+@RequestMapping("/api/tasks")
+@CrossOrigin(origins = "*")
 public class TaskController {
+
     @Autowired
     private TaskService taskService;
 
-
+    // Get tasks for the current user.
     @GetMapping
     public List<Task> getAllTasks() {
-        return taskService.getAllTasks();
+        return taskService.getAllTasksForCurrentUser();
     }
 
     @GetMapping("/{id}")
@@ -51,5 +51,5 @@ public class TaskController {
         } catch (RuntimeException ex) {
             return ResponseEntity.notFound().build();
         }
-}
+    }
 }

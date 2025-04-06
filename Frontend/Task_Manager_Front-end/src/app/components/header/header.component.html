@@ -1,0 +1,9 @@
+<!-- src/app/components/header/header.component.html -->
+<div class="header">
+    <div class="user-info" *ngIf="username">
+      <span class="user-icon">&#128100;</span>
+      <span class="username">{{ username }}</span>
+      <button (click)="logout()">Logout</button>
+    </div>
+  </div>
+  

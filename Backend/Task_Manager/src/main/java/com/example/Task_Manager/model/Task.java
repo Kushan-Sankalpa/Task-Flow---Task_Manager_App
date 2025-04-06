@@ -23,18 +23,21 @@ public class Task {
 
     private LocalDateTime createdAt = LocalDateTime.now();
 
+    private String createdBy;
+
 
     // No-argument constructor
     public Task() {
     }
 
     // All-argument constructor
-    public Task(Long id, String title, String description, String status, LocalDateTime createdAt) {
+    public Task(Long id, String title, String description, String status, LocalDateTime createdAt, String createdBy) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.status = status;
         this.createdAt = createdAt;
+        this.createdBy = createdBy;
     }
 
     // Getters and Setters
@@ -78,5 +81,7 @@ public class Task {
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
+    public String getCreatedBy() { return createdBy; }
+    public void setCreatedBy(String createdBy) { this.createdBy = createdBy; }
 
 }

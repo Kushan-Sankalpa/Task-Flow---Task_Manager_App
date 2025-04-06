@@ -3,31 +3,34 @@ package com.example.Task_Manager.service;
 import com.example.Task_Manager.model.Task;
 import com.example.Task_Manager.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
-@Service   // Marks this class as a service (business logic layer).
+@Service
 public class TaskService {
 
-    @Autowired   // Automatically provides the TaskRepository.
+    @Autowired
     private TaskRepository taskRepository;
 
-    public List<Task> getAllTasks() {
-        return taskRepository.findAll();
+    // Get all tasks for the current user.
+    public List<Task> getAllTasksForCurrentUser() {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        return taskRepository.findByCreatedBy(username);
     }
 
     public Optional<Task> getTaskById(Long id) {
         return taskRepository.findById(id);
     }
 
-    //create the task
+    // When creating a task, record the current user's username.
     public Task createTask(Task task) {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        task.setCreatedBy(username);
         return taskRepository.save(task);
     }
 
-    // Update the Task
     public Task updateTask(Long id, Task taskDetails) {
         Task task = taskRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Task not found with id " + id));
@@ -37,7 +40,6 @@ public class TaskService {
         return taskRepository.save(task);
     }
 
-    // delete the task
     public void deleteTask(Long id) {
         Task task = taskRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Task not found with id " + id));

@@ -1,4 +1,4 @@
-
+// src/app/components/login/login.component.ts
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
@@ -18,7 +18,6 @@ export class LoginComponent {
     private authService: AuthService,
     private router: Router
   ) {
-    // Create a form with two required fields: username and password.
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
@@ -28,11 +27,13 @@ export class LoginComponent {
   onSubmit(): void {
     if (this.loginForm.invalid) return;
     
-    // Call the login function from AuthService.
     this.authService.login(this.loginForm.value).subscribe({
       next: (token: string) => {
-        localStorage.setItem('token', token); // Save the JWT token.
-        this.router.navigate(['/tasks']);      // Navigate to the task list page.
+        localStorage.setItem('token', token);
+        localStorage.setItem('username', this.loginForm.value.username);
+        // Update the BehaviorSubject so that HeaderComponent gets updated.
+        this.authService.setUsername(this.loginForm.value.username);
+        this.router.navigate(['/tasks']);
       },
       error: err => {
         this.error = 'Login failed. Please check your credentials.';
