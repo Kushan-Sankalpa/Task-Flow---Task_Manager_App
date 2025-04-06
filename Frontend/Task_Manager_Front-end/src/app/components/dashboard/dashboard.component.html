@@ -1,31 +1,56 @@
-
-<div class="container">
-    <h2>Dashboard</h2>
-    <div class="row">
-      <div class="col-md-4">
-        <h4 class="text-primary">To Do</h4>
-        <div *ngFor="let task of todoTasks" class="card mb-2">
-          <div class="card-body">
-            <h5 class="card-title">{{ task.title }}</h5>
-            <p class="card-text">{{ task.description }}</p>
+<div class="dashboard-container">
+    <h2 class="dashboard-title">Dashboard</h2>
+    <div class="kanban-board">
+      <!-- To Do Column -->
+      <div class="kanban-column">
+        <div class="column-header todo-header">
+          <h4><i class="fa-solid fa-list-ul me-2"></i>To do</h4>
+        </div>
+        <div *ngFor="let task of todoTasks" class="task-card">
+          <div class="card-content">
+            <div class="task-icon">
+              <i class="fa-solid fa-list-ul"></i>
+            </div>
+            <div class="task-info">
+              <h5 class="task-title">{{ task.title }}</h5>
+              <p class="task-desc">{{ task.description }}</p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col-md-4">
-        <h4 class="text-warning">In Progress</h4>
-        <div *ngFor="let task of inProgressTasks" class="card mb-2">
-          <div class="card-body">
-            <h5 class="card-title">{{ task.title }}</h5>
-            <p class="card-text">{{ task.description }}</p>
+  
+      <!-- In Progress Column -->
+      <div class="kanban-column">
+        <div class="column-header inprogress-header">
+          <h4><i class="fa-solid fa-bars-progress me-2"></i>In progress</h4>
+        </div>
+        <div *ngFor="let task of inProgressTasks" class="task-card">
+          <div class="card-content">
+            <div class="task-icon">
+              <i class="fa-solid fa-bars-progress"></i>
+            </div>
+            <div class="task-info">
+              <h5 class="task-title">{{ task.title }}</h5>
+              <p class="task-desc">{{ task.description }}</p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col-md-4">
-        <h4 class="text-success">Done</h4>
-        <div *ngFor="let task of doneTasks" class="card mb-2">
-          <div class="card-body">
-            <h5 class="card-title">{{ task.title }}</h5>
-            <p class="card-text">{{ task.description }}</p>
+  
+      <!-- Done Column -->
+      <div class="kanban-column">
+        <div class="column-header done-header">
+          <h4><i class="fa-solid fa-circle-check me-2"></i>Done</h4>
+        </div>
+        <div *ngFor="let task of doneTasks" class="task-card">
+          <div class="card-content">
+            <div class="task-icon">
+              <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div class="task-info">
+              <h5 class="task-title">{{ task.title }}</h5>
+              <p class="task-desc">{{ task.description }}</p>
+            </div>
           </div>
         </div>
       </div>

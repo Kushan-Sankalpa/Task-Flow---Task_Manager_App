@@ -20,4 +20,6 @@ export class DashboardComponent implements OnInit {
       this.doneTasks = allTasks.filter((t: Task) => t.status === 'DONE');
     });
   }
+
+ 
 }
