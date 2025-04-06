@@ -27,17 +27,18 @@ export class LoginComponent {
   onSubmit(): void {
     if (this.loginForm.invalid) return;
     
-    this.authService.login(this.loginForm.value).subscribe({
-      next: (token: string) => {
-        localStorage.setItem('token', token);
-        localStorage.setItem('username', this.loginForm.value.username);
-        // Update the BehaviorSubject so that HeaderComponent gets updated.
-        this.authService.setUsername(this.loginForm.value.username);
-        this.router.navigate(['/tasks']);
-      },
-      error: err => {
-        this.error = 'Login failed. Please check your credentials.';
-      }
-    });
+  
+this.authService.login(this.loginForm.value).subscribe({
+  next: (token: string) => {
+    localStorage.setItem('token', token);
+    localStorage.setItem('username', this.loginForm.value.username);
+    this.authService.setUsername(this.loginForm.value.username); 
+    this.router.navigate(['/dashboard']); 
+  },
+  error: err => {
+    this.error = 'Login failed. Please check your credentials.';
+  }
+});
+
   }
 }

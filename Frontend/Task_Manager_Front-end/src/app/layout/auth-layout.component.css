@@ -1,4 +1,4 @@
-/* Styles for the sidebar layout */
+/* Ensures full viewport height */
 #wrapper {
     min-height: 100vh;
     display: flex;

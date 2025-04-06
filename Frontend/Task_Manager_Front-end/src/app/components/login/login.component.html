@@ -1,18 +1,24 @@
+<div class="login-header text-center mb-4">
+  <h1 class="fw-bold">Task Manager</h1>
+  <p class="text-muted">Welcome to the Task Manager App</p>
+</div>
 
-<div class="container">
-    <h2>Login</h2>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <div>
-        <label>Username:</label>
-        <input formControlName="username" class="form-control" />
-      </div>
-      <div>
-        <label>Password:</label>
-        <input type="password" formControlName="password" class="form-control" />
-      </div>
-      <div *ngIf="error" class="error-message">{{ error }}</div>
-      <button type="submit" class="btn">Login</button>
-    </form>
-    <p>Don't have an account? <a routerLink="/register">Register here</a></p>
-  </div>
-  
+<div class="login-container">
+  <h2 class="text-center mb-4">Login</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="username">Username:</label>
+      <input id="username" formControlName="username" class="form-control" />
+    </div>
+    <div class="mb-3">
+      <label for="password">Password:</label>
+      <input id="password" type="password" formControlName="password" class="form-control" />
+    </div>
+    <div *ngIf="error" class="text-danger text-center mb-3">{{ error }}</div>
+    <button type="submit" class="btn btn-primary w-100">Login</button>
+  </form>
+  <p class="text-center mt-3">
+    Don't have an account? <a routerLink="/register">Sign Up</a>
+  </p>
+</div>
+

@@ -1,22 +1,22 @@
-// header.component.ts
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: 'app-auth-layout',
+  standalone: true,
+  imports: [RouterModule],  // Import RouterModule here
+  templateUrl: './auth-layout.component.html',
+  styleUrls: ['./auth-layout.component.css']
 })
-export class HeaderComponent implements OnInit, OnDestroy {
+export class AuthLayoutComponent implements OnInit, OnDestroy {
   username: string | null = null;
-  private subscription!: Subscription;
+  subscription!: Subscription;
 
   constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {
-    
     this.subscription = this.authService.username$.subscribe(name => {
       this.username = name;
     });
@@ -30,8 +30,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
+    this.subscription.unsubscribe();
   }
 }
