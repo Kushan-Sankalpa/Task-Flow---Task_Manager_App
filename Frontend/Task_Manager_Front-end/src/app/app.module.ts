@@ -23,6 +23,6 @@ import { TaskFormComponent } from './components/task-form/task-form.component';
       AppRoutingModule     // Enables routing between pages.
     ],
     providers: [],
-    bootstrap: [AppComponent] // This tells Angular to start with AppComponent.
+    bootstrap: [AppComponent] 
   })
   export class AppModule { }
