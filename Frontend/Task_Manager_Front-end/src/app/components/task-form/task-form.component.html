@@ -1,0 +1,26 @@
+<div class="container">
+    <h2>{{ isEditMode ? 'Edit Task' : 'Add New Task' }}</h2>
+    <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label>Title:</label>
+        <input formControlName="title" />
+        <div *ngIf="taskForm.get('title')?.invalid && taskForm.get('title')?.touched" style="color: red;">
+          Title is required.
+        </div>
+      </div>
+      <div>
+        <label>Description:</label>
+        <textarea formControlName="description"></textarea>
+      </div>
+      <div>
+        <label>Status:</label>
+        <select formControlName="status">
+          <option value="TO_DO">TO_DO</option>
+          <option value="IN_PROGRESS">IN_PROGRESS</option>
+          <option value="DONE">DONE</option>
+        </select>
+      </div>
+      <button type="submit">{{ isEditMode ? 'Update Task' : 'Create Task' }}</button>
+    </form>
+  </div>
+  
