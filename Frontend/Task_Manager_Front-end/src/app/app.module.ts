@@ -11,6 +11,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { TaskListComponent } from './components/task-list/task-list.component';
 import { TaskFormComponent } from './components/task-form/task-form.component';
 import { TokenInterceptor } from './services/token.interceptor';
+import { TaskDetailsComponent } from './components/task-details/task-details.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { TokenInterceptor } from './services/token.interceptor';
     LoginComponent,
     RegisterComponent,
     TaskListComponent,
-    TaskFormComponent
+    TaskFormComponent,
+    TaskDetailsComponent
   ],
   imports: [
     BrowserModule,

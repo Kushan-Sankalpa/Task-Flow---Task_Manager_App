@@ -1,27 +1,27 @@
 
 <div class="container">
-    <h2>Task List</h2>
-    <button routerLink="/tasks/new">Add New Task</button>
-    <table>
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Status</th>
-          <th>Created At</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let task of tasks">
-          <td>{{ task.title }}</td>
-          <td>{{ task.status }}</td>
-          <td>{{ task.createdAt | date:'short' }}</td>
-          <td>
-            <button (click)="editTask(task.id)">Edit</button>
-            <button (click)="deleteTask(task.id)">Delete</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  
+  <h2>Task List</h2>
+  <button routerLink="/tasks/new">Add New Task</button>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Status</th>
+        <th>Created At</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks">
+        <td>{{ task.title }}</td>
+        <td>{{ task.status }}</td>
+        <td>{{ task.createdAt | date:'short' }}</td>
+        <td>
+          <button (click)="editTask(task.id)">Edit</button>
+          <button (click)="deleteTask(task.id)">Delete</button>
+          <button routerLink="/tasks/details/{{task.id}}">Details</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

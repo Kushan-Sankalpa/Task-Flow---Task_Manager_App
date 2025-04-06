@@ -1,1 +1,20 @@
-<p>task-details works!</p>
+<div class="container" *ngIf="task">
+    <h2>Task Details</h2>
+    <div class="detail">
+      <strong>Title:</strong> {{ task.title }}
+    </div>
+    <div class="detail">
+      <strong>Description:</strong> {{ task.description }}
+    </div>
+    <div class="detail">
+      <strong>Status:</strong> {{ task.status }}
+    </div>
+    <div class="detail">
+      <strong>Created At:</strong> {{ task.createdAt | date:'medium' }}
+    </div>
+    <button (click)="goBack()" class="btn">Back to Task List</button>
+  </div>
+  <div *ngIf="!task">
+    <p>Loading task details...</p>
+  </div>
+  

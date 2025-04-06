@@ -4,6 +4,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { TaskListComponent } from './components/task-list/task-list.component';
 import { TaskFormComponent } from './components/task-form/task-form.component';
+import { TaskDetailsComponent } from './components/task-details/task-details.component';
 
 //routes
 const routes: Routes = [
@@ -12,7 +13,9 @@ const routes: Routes = [
     { path: 'register', component: RegisterComponent },        
     { path: 'tasks', component: TaskListComponent },         
     { path: 'tasks/new', component: TaskFormComponent },    
-    { path: 'tasks/edit/:id', component: TaskFormComponent } 
+    { path: 'tasks/edit/:id', component: TaskFormComponent },
+    { path: 'tasks/details/:id', component: TaskDetailsComponent } 
+
   ];
   
   
