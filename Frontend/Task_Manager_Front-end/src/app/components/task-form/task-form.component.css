@@ -1,19 +1,149 @@
-/* src/app/components/task-form/task-form.component.css */
+:root {
+  --primary-color: #6366f1;
+  --secondary-color: #a855f7;
+  --text-color: #1f2937;
+  --light-text: #64748b;
+  --border-color: #e2e8f0;
+  --error-color: #ef4444;
+  --radius: 12px;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
 .container {
-  max-width: 500px;
-  margin: 20px auto;
-  padding: 1.5rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-width: 520px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color);
+}
+
+h2 {
+  color: var(--text-color);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+h2::before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  background: var(--gradient);
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32L19.513 8.2z'/%3E%3C/svg%3E");
+}
+
+/* Form Group Spacing */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  font-weight: 500;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
 }
 
 .form-control {
   width: 100%;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
-  border: 1px solid #aaa;
-  border-radius: 4px;
-  box-sizing: border-box;
+  padding: 0.875rem;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.15s ease;
+  background: #f8fafc;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  background: #fff;
+}
+
+textarea.form-control {
+  min-height: 120px;
+  resize: vertical;
+}
+
+select.form-control {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2364768b'%3E%3Cpath fill-rule='evenodd' d='M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1.25em;
+  padding-right: 2.5rem;
+}
+
+.btn-submit {
+  display: block;          /* Make the button a block element */
+  margin: 1rem auto 0;     /* Automatically center horizontally */
+  background-color: #6366f1;
+  color: #fff; 
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  text-align: center;
+}
+
+.btn-submit:hover {
+  background-color: #4f46e5; /* Slightly darker shade */
+}
+
+.btn-submit:focus {
+  outline: 2px solid #a855f7;
+  outline-offset: 2px;
+}
+
+
+/* Error Message */
+.error-message {
+  color: var(--error-color);
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: #fef2f2;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid #fecaca;
+}
+
+.error-message::before {
+  content: '!';
+  width: 20px;
+  height: 20px;
+  background: var(--error-color);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+  .container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  h2 {
+    font-size: 1.25rem;
+  }
 }

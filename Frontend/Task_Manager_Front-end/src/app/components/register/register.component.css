@@ -216,3 +216,34 @@
   top: 50%;
   right: 20%;
 }
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.logo-icon {
+  background-color: #f8f9fa;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-icon i {
+  color: #279b09;
+  font-size: 1.75rem; /* Increased icon size */
+}
+
+/* Title styling */
+.app-title {
+  margin: 0;
+  color: #0e37ed;
+  font-size: 1.5rem;  /* Adjust as needed */
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}

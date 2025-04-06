@@ -1,20 +1,105 @@
+/* Modern Styling */
+.task-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
 
-.container {
-    padding: 20px;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
-  }
-  
-  th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  button {
-    margin-right: 5px;
-  }
-  
+.task-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.task-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2d3436;
+  margin-bottom: 0.75rem;
+}
+
+.task-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,0.1);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Status Colors with a subtle gradient */
+.status-badge[ng-reflect-content="Not Started"] {
+  background: linear-gradient(135deg, #ffe8cc, #ffd8a8);
+  color: #d9480f;
+}
+
+.status-badge[ng-reflect-content="In Progress"] {
+  background: linear-gradient(135deg, #d0ebff, #a5d8ff);
+  color: #1864ab;
+}
+
+.status-badge[ng-reflect-content="Completed"] {
+  background: linear-gradient(135deg, #d3f8d3, #a3e9a4);
+  color: #2b8a3e;
+}
+
+.creation-date {
+  display: flex;
+  align-items: center;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.date-text {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.task-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-action {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.btn-action.edit {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.btn-action.delete {
+  background: #ffebee;
+  color: #d32f2f;
+}
+
+.btn-action.details {
+  background: #f5f5f5;
+  color: #616161;
+}
+
+.btn-action:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure Font Awesome icons are properly sized */
+.fas, .far {
+  font-size: 0.9rem;
+}

@@ -1,8 +1,13 @@
 <div class="d-flex" id="wrapper">
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
-      <div class="sidebar-heading text-center py-4 fs-5 fw-bold border-bottom">
-        Task Manager
+      <div class="sidebar-heading text-center py-4 border-bottom">
+        <div class="logo-container">
+          <div class="logo-icon">
+            <i class="fa-solid fa-check-double"></i>
+          </div>
+          <h1 class="app-title">Task Flow</h1>
+        </div>
       </div>
       <div class="sidebar-links">
         <a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="sidebar-link">
@@ -27,8 +32,8 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
         <div class="container-fluid">
           <div class="ms-auto d-flex align-items-center">
-            <i class="bi bi-person-circle fs-4 me-2"></i>
-            <span>{{ username }}</span>
+            <img src="assets/user.png" alt="User Icon" class="user-icon me-2" />
+            <span class="username">{{ username }}</span>
           </div>
         </div>
       </nav>
@@ -38,4 +43,3 @@
       </div>
     </div>
   </div>
-  

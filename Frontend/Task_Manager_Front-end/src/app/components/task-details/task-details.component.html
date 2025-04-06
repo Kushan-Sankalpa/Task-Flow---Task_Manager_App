@@ -1,20 +1,71 @@
-<div class="container" *ngIf="task">
-    <h2>Task Details</h2>
-    <div class="detail">
-      <strong>Title:</strong> {{ task.title }}
+<div class="details-container" *ngIf="task">
+    <!-- Header Section -->
+    <div class="header">
+      <h2 class="title">{{ task.title }}</h2>
+      <span class="status-badge" [ngClass]="'status-' + (task.status?.toLowerCase() || '')">
+        {{ task.status }}
+      </span>
     </div>
-    <div class="detail">
-      <strong>Description:</strong> {{ task.description }}
+  
+    <!-- Details Content -->
+    <div class="details-content">
+      <div class="detail-item">
+        <span class="detail-label">
+          <svg class="icon" viewBox="0 0 24 24">
+            <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 
+              1.1.9 2 2 2h12c1.1 0 2-.9 
+              2-2V8l-6-6zM6 20V4h7v5h5v11H6z"/>
+            <path d="M8 10h8v2H8zm0 4h8v2H8zm0 
+              4h5v2H8z"/>
+          </svg>
+          Description
+        </span>
+        <p class="description">
+          {{ task.description || 'No description provided' }}
+        </p>
+      </div>
+  
+      <div class="meta-info">
+        <div class="meta-item">
+          <svg class="icon" viewBox="0 0 24 24">
+            <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 
+              0-2 .9-2 2v14c0 1.1.9 2 
+              2 2h14c1.1 0 2-.9 
+              2-2V5c0-1.1-.9-2-2-2zm0 
+              16H5V9h14v10zM5 7V5h14v2H5z"/>
+          </svg>
+          Created {{ task.createdAt | date:'MMM d, y' }}
+        </div>
+        <div class="meta-item">
+          <svg class="icon" viewBox="0 0 24 24">
+            <path d="M11.99 2C6.47 2 2 
+              6.48 2 12s4.47 10 9.99 
+              10C17.52 22 22 17.52 
+              22 12S17.52 2 11.99 
+              2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 
+              8-8 8 3.58 8 8-3.58 8-8 8z"/>
+            <path d="M12.5 7H11v6l5.25 
+              3.15.75-1.23-4.5-2.67z"/>
+          </svg>
+          {{ task.createdAt | date:'h:mm a' }}
+        </div>
+      </div>
     </div>
-    <div class="detail">
-      <strong>Status:</strong> {{ task.status }}
-    </div>
-    <div class="detail">
-      <strong>Created At:</strong> {{ task.createdAt | date:'medium' }}
-    </div>
-    <button (click)="goBack()" class="btn">Back to Task List</button>
+  
+    <!-- Back Button -->
+    <button (click)="goBack()" class="btn">
+      <svg class="arrow-icon" viewBox="0 0 24 24">
+        <path d="M20 11H7.83l5.59-5.59L12 
+          4l-8 8 8 8 1.41-1.41L7.83 
+          13H20v-2z"/>
+      </svg>
+      Back to List
+    </button>
   </div>
-  <div *ngIf="!task">
+  
+  <!-- Loading State -->
+  <div class="loading-container" *ngIf="!task">
+    <div class="loading-spinner"></div>
     <p>Loading task details...</p>
   </div>
   

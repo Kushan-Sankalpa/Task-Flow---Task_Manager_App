@@ -4,12 +4,13 @@
       <!-- To Do Column -->
       <div class="kanban-column">
         <div class="column-header todo-header">
-          <h4><i class="fa-solid fa-list-ul me-2"></i>To do</h4>
+          <h4>TO DO</h4>
         </div>
         <div *ngFor="let task of todoTasks" class="task-card">
           <div class="card-content">
             <div class="task-icon">
-              <i class="fa-solid fa-list-ul"></i>
+                <img src="assets/todo.png" alt="User Icon" />
+
             </div>
             <div class="task-info">
               <h5 class="task-title">{{ task.title }}</h5>
@@ -22,12 +23,13 @@
       <!-- In Progress Column -->
       <div class="kanban-column">
         <div class="column-header inprogress-header">
-          <h4><i class="fa-solid fa-bars-progress me-2"></i>In progress</h4>
+          <h4>IN PROGRESS</h4>
         </div>
         <div *ngFor="let task of inProgressTasks" class="task-card">
           <div class="card-content">
             <div class="task-icon">
-              <i class="fa-solid fa-bars-progress"></i>
+                <img src="assets/inprogress1.png" alt="User Icon" />
+
             </div>
             <div class="task-info">
               <h5 class="task-title">{{ task.title }}</h5>
@@ -40,12 +42,12 @@
       <!-- Done Column -->
       <div class="kanban-column">
         <div class="column-header done-header">
-          <h4><i class="fa-solid fa-circle-check me-2"></i>Done</h4>
+          <h4>DONE</h4>
         </div>
         <div *ngFor="let task of doneTasks" class="task-card">
           <div class="card-content">
             <div class="task-icon">
-              <i class="fa-solid fa-circle-check"></i>
+                <img src="assets/check-mark.png" alt="User Icon" />
             </div>
             <div class="task-info">
               <h5 class="task-title">{{ task.title }}</h5>

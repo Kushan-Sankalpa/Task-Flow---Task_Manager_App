@@ -39,15 +39,15 @@
   }
   
   .todo-header {
-    background-color: #4361ee; /* Blue for To do */
+    background-color: #4361ee; /* Blue */
   }
   
   .inprogress-header {
-    background-color: #ffae00; /* Orange for In progress */
+    background-color: #ffae00; /* Orange */
   }
   
   .done-header {
-    background-color: #06d6a0; /* Green for Done */
+    background-color: #06d6a0; /* Green */
   }
   
   /* Task card styling */
@@ -72,11 +72,13 @@
     gap: 0.75rem;
   }
   
-  /* Task Icon Styling */
-  .task-icon i {
-    font-size: 1.5rem;
-    color: #4361ee;
+  .task-icon img {
+    width: 50px;
+    height: auto;       /* Let the image keep its aspect ratio */
+    border-radius: 0;   /* Remove or reduce rounding if you want a normal rectangle */
+    object-fit: contain; 
   }
+  
   
   /* Task info styling */
   .task-info {
