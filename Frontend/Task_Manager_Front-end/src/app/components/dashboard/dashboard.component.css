@@ -39,11 +39,11 @@
   }
   
   .todo-header {
-    background-color: #4361ee; /* Blue */
+    background-color: #ce310a; /* Blue */
   }
   
   .inprogress-header {
-    background-color: #ffae00; /* Orange */
+    background-color: #1054d3; /* Orange */
   }
   
   .done-header {

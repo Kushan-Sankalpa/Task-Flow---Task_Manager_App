@@ -1,4 +1,4 @@
-/* Modern Styling */
+/* Modern Styling for Task Card */
 .task-card {
   border: 1px solid #e0e0e0;
   border-radius: 12px;
@@ -6,11 +6,24 @@
   transition: all 0.3s ease;
 }
 
+.dashboard-title {
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+.mb-4{
+  margin: 0 auto 1rem; 
+  text-align: center;
+  color: #2b2d42;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
 .task-card:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transform: translateY(-2px);
 }
 
+ 
 .task-title {
   font-size: 1.1rem;
   font-weight: 600;
@@ -24,6 +37,7 @@
   gap: 1.5rem;
 }
 
+/* Base styling for the status badge */
 .status-badge {
   display: inline-block;
   padding: 6px 16px;
@@ -32,24 +46,24 @@
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  box-shadow: inset 0 -1px 0 rgba(0,0,0,0.1);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Status Colors with a subtle gradient */
-.status-badge[ng-reflect-content="Not Started"] {
-  background: linear-gradient(135deg, #ffe8cc, #ffd8a8);
-  color: #d9480f;
+/* Status Colors */
+.status-badge.todo {
+  background: #ffe8e8;  /* light red background */
+  color: #d32f2f;       /* red text */
 }
 
-.status-badge[ng-reflect-content="In Progress"] {
-  background: linear-gradient(135deg, #d0ebff, #a5d8ff);
-  color: #1864ab;
+.status-badge.in-progress {
+  background: #d0ebff;  /* light blue background */
+  color: #1864ab;       /* blue text */
 }
 
-.status-badge[ng-reflect-content="Completed"] {
-  background: linear-gradient(135deg, #d3f8d3, #a3e9a4);
-  color: #2b8a3e;
+.status-badge.completed {
+  background: #d3f8d3;  /* light green background */
+  color: #2b8a3e;       /* green text */
 }
 
 .creation-date {

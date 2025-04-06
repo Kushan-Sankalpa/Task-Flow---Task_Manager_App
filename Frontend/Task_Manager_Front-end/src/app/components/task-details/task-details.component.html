@@ -2,8 +2,14 @@
     <!-- Header Section -->
     <div class="header">
       <h2 class="title">{{ task.title }}</h2>
-      <span class="status-badge" [ngClass]="'status-' + (task.status?.toLowerCase() || '')">
-        {{ task.status }}
+      <span 
+        class="status-badge" 
+        [ngClass]="{
+          'status-todo': task.status === 'TO_DO',
+          'status-in_progress': task.status === 'IN_PROGRESS',
+          'status-done': task.status === 'DONE'
+        }">
+        {{ task.status === 'DONE' ? 'COMPLETED' : task.status }}
       </span>
     </div>
   
@@ -53,7 +59,13 @@
     </div>
   
     <!-- Back Button -->
-    <button (click)="goBack()" class="btn">
+    <button (click)="goBack()" 
+            class="btn back-button"
+            [ngClass]="{
+              'back-todo': task.status === 'TO_DO',
+              'back-inprogress': task.status === 'IN_PROGRESS',
+              'back-done': task.status === 'DONE'
+            }">
       <svg class="arrow-icon" viewBox="0 0 24 24">
         <path d="M20 11H7.83l5.59-5.59L12 
           4l-8 8 8 8 1.41-1.41L7.83 

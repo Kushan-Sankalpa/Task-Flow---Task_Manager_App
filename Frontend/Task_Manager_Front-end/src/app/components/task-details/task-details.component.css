@@ -1,231 +1,138 @@
-:root {
-    /* Theme Colors */
-    --primary-color: #6366f1;    /* Indigo-500 */
-    --primary-light: #e0e7ff;    /* Indigo-100 */
-    --secondary-color: #a855f7;  /* Purple-500 */
-    --accent-color: #ec4899;     /* Pink-500 */
-    --text-color: #1f2937;       /* Gray-800 */
-    --light-text: #6b7280;       /* Gray-500 */
-    --background: #f8fafc;       /* Gray-50 */
-    --white: #ffffff;
-    --error-color: #ef4444;      /* Red-500 */
-    --success-color: #10b981;    /* Green-500 */
-  
-    /* Sizing & Effects */
-    --border-radius: 16px;
-    --shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
-    --gradient: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-  }
-  
-  /* Container */
-  .details-container {
-    max-width: 720px;
+/* Box layout for the details container */
+.details-container {
+    max-width: 800px;
     margin: 2rem auto;
-    padding: 2.5rem;
-    border-radius: var(--border-radius);
-    background: var(--white);
-    box-shadow: var(--shadow);
-    position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  
-    /* Subtle radial + linear background overlay for a dynamic look */
-    background-image:
-      radial-gradient(
-        circle at 100% 100%,
-        rgba(236, 72, 153, 0.05) 0%,
-        transparent 30%
-      ),
-      linear-gradient(var(--background) 100%);
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   
-  /* Header */
+  /* Header styling */
   .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #e5e7eb;
-    position: relative;
+    margin-bottom: 1rem;
   }
   
-  /* Gradient highlight line under header */
-  .header::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 120px;
-    height: 2px;
-    background: var(--gradient);
-  }
-  
-  /* Title with gradient text effect */
   .title {
-    color: var(--text-color);
-    font-size: 2.25rem;
-    font-weight: 800;
-    margin: 0;
-    letter-spacing: -0.025em;
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
   }
   
-  /* Status Badge */
+  /* Status badge styling */
   .status-badge {
-    padding: 0.5rem 1.25rem;
-    border-radius: 20px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-transform: capitalize;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
   }
   
-  /* Different statuses */
-  .status-badge.status-completed {
-    background: #d1fae5;  /* Green-100 */
-    color: #065f46;       /* Green-800 */
-    border-color: #34d39940;
+  /* Status badge colors */
+  .status-todo {
+    background-color: red;
+    color: #fff;
   }
   
-  .status-badge.status-in-progress {
-    background: #fef3c7;  /* Amber-100 */
-    color: #92400e;       /* Amber-800 */
-    border-color: #f59e0b40;
+  .status-in_progress {
+    background-color: rgb(5, 28, 177);
+    color: #fff;
   }
   
-  .status-badge.status-pending {
-    background: var(--primary-light);
-    color: var(--primary-color);
-    border-color: #6366f140;
+  .status-done {
+    background-color: green;
+    color: #fff;
   }
   
-  /* Content Area */
+  /* Details content styling */
   .details-content {
-    display: grid;
-    gap: 2rem;
-    padding: 1rem 0;
+    margin-bottom: 1.5rem;
   }
   
-  /* Detail Items */
   .detail-item {
-    display: grid;
-    gap: 1rem;
+    margin-bottom: 1rem;
   }
   
-  /* Label with an icon */
   .detail-label {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    color: var(--light-text);
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 0.5rem;
   }
   
-  /* Icon in labels */
   .detail-label .icon {
-    width: 24px;
-    height: 24px;
-    padding: 4px;
-    background: var(--gradient);
-    border-radius: 6px;
-    fill: var(--white);
+    width: 20px;
+    height: 20px;
+    margin-right: 0.5rem;
+    fill: #555;
   }
   
-  /* Description Box */
   .description {
-    color: var(--text-color);
-    line-height: 1.7;
+    font-size: 0.95rem;
+    color: #666;
     margin: 0;
-    padding: 1.5rem;
-    background: var(--white);
-    border-radius: 12px;
-    border-left: 4px solid var(--primary-color);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    font-size: 1.05rem;
   }
   
-  /* Meta Info Container */
+  /* Meta info styling */
   .meta-info {
     display: flex;
-    gap: 2rem;
-    margin-top: 2rem;
-    padding: 1.5rem;
-    background: var(--background);
-    border-radius: 12px;
+    gap: 1rem;
+    margin-top: 1rem;
   }
   
-  /* Each Meta Item */
   .meta-item {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    color: var(--light-text);
-    font-size: 0.875rem;
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    background: var(--white);
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    font-size: 0.9rem;
+    color: #777;
   }
   
   .meta-item .icon {
     width: 20px;
     height: 20px;
-    fill: var(--primary-color);
+    margin-right: 0.5rem;
+    fill: #777;
   }
   
-  /* Back Button */
-  .btn {
+  /* Back button styling */
+  .back-button {
     display: inline-flex;
     align-items: center;
-    gap: 0.75rem;
-    padding: 1rem 2rem;
-    margin-top: 2rem;
-    background: var(--gradient);
-    color: var(--white);
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
     border: none;
-    border-radius: 8px;
-    font-weight: 600;
+    border-radius: 4px;
+    font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
+    transition: background-color 0.3s ease;
   }
   
-  /* Shimmer effect inside button */
-  .btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 200%;
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent 25%,
-      rgba(255, 255, 255, 0.2) 50%,
-      transparent 75%
-    );
-    animation: shimmer 2s infinite;
+  /* Back button colors based on task status */
+  .back-todo {
+    background-color: #dce4fd;
+    color: #070707;
   }
   
-  .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
+  .back-inprogress {
+    background-color: #dce4fd;
+    color: #070707;
   }
   
-  /* Shimmer animation moves left to right */
-  @keyframes shimmer {
-    100% {
-      left: 100%;
-    }
+  .back-done {
+    background-color: #dce4fd;
+    color: #070707;
+  }
+  
+  .back-button .arrow-icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
   }
   
   /* Loading State */
@@ -234,52 +141,20 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1.5rem;
-    height: 400px;
-    color: var(--light-text);
-    background: var(--background);
-    border-radius: var(--border-radius);
+    margin: 2rem auto;
   }
   
   .loading-spinner {
-    width: 48px;
-    height: 48px;
-    border: 3px solid var(--background);
-    border-top: 3px solid var(--primary-color);
-    border-right: 3px solid var(--secondary-color);
+    width: 40px;
+    height: 40px;
+    border: 4px solid #ddd;
+    border-top-color: #4361ee;
     border-radius: 50%;
     animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
   }
   
   @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  
-  /* Responsive Adjustments */
-  @media (max-width: 640px) {
-    .details-container {
-      margin: 1rem;
-      padding: 1.5rem;
-    }
-  
-    .title {
-      font-size: 1.75rem;
-    }
-  
-    .meta-info {
-      flex-direction: column;
-      gap: 1rem;
-      padding: 1rem;
-    }
-  
-    .btn {
-      width: 100%;
-      justify-content: center;
-    }
+    to { transform: rotate(360deg); }
   }
   
