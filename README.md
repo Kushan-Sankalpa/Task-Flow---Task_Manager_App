@@ -199,7 +199,3 @@ The application uses MySQL as its database:
 ---
 
 
-## Author
-
-**Kushan Sankalpa**  
-
