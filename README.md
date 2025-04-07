@@ -147,7 +147,6 @@ The application uses MySQL as its database:
 ## Screenshots
 
 ### 1. Login Page  
-*Below is a screenshot of the login page. Replace the placeholder with your image file or URL.*  
 
 ![image alt](https://github.com/Kushan-Sankalpa/Task-Hut---Task_Manager_App/blob/5f0965ce4cb6bf170b4831eb88976b187c2343c1/login.png)
 
@@ -155,22 +154,52 @@ The application uses MySQL as its database:
 ---
 
 ### 2. Register Page  
-*Below is a screenshot of the register page. Replace the placeholder with your image file or URL.*  
 
-![Register Page](path/to/register-screenshot.png)
+![image alt]( https://github.com/Kushan-Sankalpa/Task-Hut---Task_Manager_App/blob/f25265a00934666780e00eb95e5cec605681189b/register.png
+)
+
+
+---
+
+### 3. Dashboard Page  
+
+![image alt](https://github.com/Kushan-Sankalpa/Task-Hut---Task_Manager_App/blob/f25265a00934666780e00eb95e5cec605681189b/dashboard_ss.png
+)
+
+
+---
+### 4. Task List Page  
+
+![image alt](https://github.com/Kushan-Sankalpa/Task-Hut---Task_Manager_App/blob/f25265a00934666780e00eb95e5cec605681189b/tasklist.png
+)
+
+
+---
+
+### 5. Add New Task Page 
+
+![image alt](https://github.com/Kushan-Sankalpa/Task-Hut---Task_Manager_App/blob/f25265a00934666780e00eb95e5cec605681189b/add_new_task.png
+)
+
+
+---
+### 6. Edit Task Page 
+
+
+![image alt](https://github.com/Kushan-Sankalpa/Task-Hut---Task_Manager_App/blob/f25265a00934666780e00eb95e5cec605681189b/edittask.png
+)
+
+
+---
+### 7. View Details page  
+
+
+![image alt](https://github.com/Kushan-Sankalpa/Task-Hut---Task_Manager_App/blob/f25265a00934666780e00eb95e5cec605681189b/details.png)
 
 ---
 
 
+## Author
 
+**Kushan Sankalpa**  
 
-## License
-*(Add your license details here. For example, MIT License or any other you choose.)*
-
----
-
-Feel free to modify any details (like repository URLs, database credentials, or additional instructions) as needed for your project. This README provides a comprehensive guide on setting up, running, and understanding your Task Hut application.
-
----
-
-This version is in plain text (Markdown) format and contains all the essential information to help users set up and run both the backend and frontend of your application.
