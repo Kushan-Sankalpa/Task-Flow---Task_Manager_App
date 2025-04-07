@@ -61,7 +61,7 @@ The backend is built using Spring Boot and MySQL, while the frontend is develope
 1. **Clone the Repository:**  
    Open your terminal and run:  
    ```
-   git clone https://github.com/yourusername/task-hut.git
+   git clone https://github.com/Kushan-Sankalpa/Task-Hut---Task_Manager_App.git
    ```
    Then navigate to the backend folder:
    ```
@@ -143,9 +143,24 @@ The application uses MySQL as its database:
 
 ---
 
+
 ## Screenshots
-*(Optional)*  
-You can add screenshots here to showcase the application’s dashboard, task list, and registration/login forms.
+
+### 1. Login Page  
+*Below is a screenshot of the login page. Replace the placeholder with your image file or URL.*  
+
+![Login Page](path/to/login-screenshot.png)
+
+---
+
+### 2. Register Page  
+*Below is a screenshot of the register page. Replace the placeholder with your image file or URL.*  
+
+![Register Page](path/to/register-screenshot.png)
+
+---
+
+Simply update the `path/to/login-screenshot.png` and `path/to/register-screenshot.png` with the actual paths or URLs to your screenshot images. This will provide clear visual headers in your README for both the login and register pages.
 
 ---
 
