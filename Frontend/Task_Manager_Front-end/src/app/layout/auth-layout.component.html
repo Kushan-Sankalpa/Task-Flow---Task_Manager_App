@@ -10,15 +10,37 @@
         </div>
       </div>
       <div class="sidebar-links">
-        <a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="sidebar-link">
-          <i class="fa-solid fa-table-cells-large me-2"></i>
+        <!-- Dashboard Link -->
+        <a 
+          routerLink="/dashboard"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="sidebar-link"
+        >
+          <img 
+            src="assets/dashboard.png"
+            alt="Dashboard Icon"
+            class="sidebar-icon me-2"
+          />
           <span>Dashboard</span>
         </a>
-        <a routerLink="/tasks" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="sidebar-link">
-          <i class="fa-solid fa-list-check me-2"></i>
+      
+        <!-- Task List Link -->
+        <a
+          routerLink="/tasks"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="sidebar-link"
+        >
+          <img 
+            src="assets/completed-task.png"
+            alt="Task List Icon"
+            class="sidebar-icon me-2"
+          />
           <span>Task List</span>
         </a>
       </div>
+      
       <div class="mt-auto text-center p-3">
         <button class="logout-button" (click)="logout()">
           <i class="fa-solid fa-arrow-left me-2"></i>

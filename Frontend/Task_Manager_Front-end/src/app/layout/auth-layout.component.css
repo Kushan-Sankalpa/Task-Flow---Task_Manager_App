@@ -86,6 +86,16 @@
   .sidebar-link.active {
     border-left: 4px solid #4361ee;
   }
+
+  
+
+  .sidebar-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain; /* or 'cover' if you want them fully filling the container */
+  display: inline-block; 
+ }
+
   
   /* Logout Button Styling */
   .logout-button {
