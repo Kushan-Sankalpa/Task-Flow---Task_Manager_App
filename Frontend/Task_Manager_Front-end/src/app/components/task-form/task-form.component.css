@@ -87,7 +87,7 @@ select.form-control {
 .btn-submit {
   display: block;          /* Make the button a block element */
   margin: 1rem auto 0;     /* Automatically center horizontally */
-  background-color: #6366f1;
+  background: linear-gradient(135deg, #3d56b2, #650ea8);
   color: #fff; 
   padding: 0.75rem 1.25rem;
   font-size: 1rem;
