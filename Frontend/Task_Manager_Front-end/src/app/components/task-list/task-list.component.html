@@ -14,15 +14,16 @@
             <h5 class="task-title">{{ task.title }}</h5>
             <div class="task-meta">
               <div class="status-indicator">
-                <span 
-                  class="status-badge" 
-                  [ngClass]="{
-                    'todo': task.status === 'TO_DO',
-                    'in-progress': task.status === 'IN_PROGRESS',
-                    'completed': task.status === 'DONE'
-                  }">
-                  {{ task.status === 'DONE' ? 'COMPLETED ' : task.status }}
-                </span>
+                <span
+  class="status-badge"
+  [ngClass]="{
+    'status-todo': task?.status?.toUpperCase() === 'TO_DO',
+    'status-in_progress': task?.status?.toUpperCase() === 'IN_PROGRESS',
+    'status-done': task?.status?.toUpperCase() === 'DONE' || task?.status?.toUpperCase() === 'COMPLETED'
+  }"
+>
+  {{ task?.status?.replace('_', ' ') }}
+</span>
               </div>
               <div class="creation-date">
                 <i class="far fa-calendar text-muted me-2"></i>

@@ -20,7 +20,6 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     // Create a form with username, password, and confirmPassword.
-    // Note: Use "validators" (plural) to add our custom validator.
     this.registerForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -35,6 +34,9 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
+    // Clear any existing token before attempting registration.
+    localStorage.removeItem('token');
+
     console.log(this.registerForm.value, this.registerForm.valid);
   
     if (this.registerForm.invalid) {
@@ -71,6 +73,4 @@ export class RegisterComponent implements OnInit {
         }
       });
   }
-  
-  
 }

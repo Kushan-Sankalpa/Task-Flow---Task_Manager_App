@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
     this.taskService.getTasks().subscribe((allTasks: Task[]) => {
       this.todoTasks = allTasks.filter((t: Task) => t.status === 'TO_DO');
       this.inProgressTasks = allTasks.filter((t: Task) => t.status === 'IN_PROGRESS');
-      this.doneTasks = allTasks.filter((t: Task) => t.status === 'DONE');
+      this.doneTasks = allTasks.filter((t: Task) => t.status === 'COMPLETED');
     });
   }
 

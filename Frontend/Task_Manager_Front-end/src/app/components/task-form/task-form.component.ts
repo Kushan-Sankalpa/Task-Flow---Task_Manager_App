@@ -9,31 +9,31 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./task-form.component.css']
 })
 export class TaskFormComponent implements OnInit {
-  taskForm: FormGroup;      
-  isEditMode: boolean = false; 
-  taskId!: number;           
+  taskForm: FormGroup;
+  isEditMode: boolean = false;
+  taskId!: number;
+  
+  // Use this to handle the case when user clicks submit without touching the fields.
+  formSubmitted: boolean = false;
 
   constructor(
     private fb: FormBuilder,
     private taskService: TaskService,
-    private route: ActivatedRoute, 
-    private router: Router         
+    private route: ActivatedRoute,
+    private router: Router
   ) {
-    // Create the form with a required title field.
     this.taskForm = this.fb.group({
       title: ['', Validators.required],
       description: [''],
-      status: ['TO_DO']  // Default status.
+      status: ['TO_DO']
     });
   }
 
   ngOnInit(): void {
-    // Check if there is an 'id' in the route (edit mode).
     this.route.params.subscribe(params => {
       if (params['id']) {
         this.isEditMode = true;
         this.taskId = +params['id'];
-        // Load the existing task data into the form.
         this.taskService.getTask(this.taskId).subscribe(task => {
           this.taskForm.patchValue(task);
         });
@@ -41,18 +41,25 @@ export class TaskFormComponent implements OnInit {
     });
   }
 
-  // Called when the form is submitted.
   onSubmit(): void {
-    if (this.taskForm.invalid) return;
+    // Flag to indicate the user has attempted submission.
+    this.formSubmitted = true;
+
+    // If invalid, mark all controls as touched to show errors.
+    if (this.taskForm.invalid) {
+      this.taskForm.markAllAsTouched();
+      return;
+    }
 
     const taskData: Task = this.taskForm.value;
+
     if (this.isEditMode) {
       this.taskService.updateTask(this.taskId, taskData).subscribe(() => {
-        this.router.navigate(['/tasks']); // Redirect after update.
+        this.router.navigate(['/tasks']);
       });
     } else {
       this.taskService.createTask(taskData).subscribe(() => {
-        this.router.navigate(['/tasks']); // Redirect after creation.
+        this.router.navigate(['/tasks']);
       });
     }
   }

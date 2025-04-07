@@ -3,10 +3,19 @@
   <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
     
     <div class="form-group">
-      <label>Title:</label>
-      <input formControlName="title" class="form-control" placeholder="Enter task title" />
+      <label class="input-label">Title <span class="required">*</span></label>
+      <div class="modern-input-wrapper">
+        <input
+          formControlName="title"
+          class="modern-input"
+          placeholder="Enter task title"
+        />
+      </div>
       <div
-        *ngIf="taskForm.get('title')?.invalid && taskForm.get('title')?.touched"
+        *ngIf="
+          taskForm.get('title')?.invalid &&
+          (taskForm.get('title')?.touched || formSubmitted)
+        "
         class="error-message"
       >
         Title is required
@@ -14,21 +23,25 @@
     </div>
     
     <div class="form-group">
-      <label>Description:</label>
-      <textarea
-        formControlName="description"
-        class="form-control"
-        placeholder="Enter task description"
-      ></textarea>
+      <label class="input-label">Description:</label>
+      <div class="modern-input-wrapper">
+        <textarea
+          formControlName="description"
+          class="modern-input modern-textarea"
+          placeholder="Enter task description"
+        ></textarea>
+      </div>
     </div>
     
     <div class="form-group">
-      <label>Status:</label>
-      <select formControlName="status" class="form-control">
-        <option value="TO_DO">TO_DO</option>
-        <option value="IN_PROGRESS">IN_PROGRESS</option>
-        <option value="COMPLETED">DONE</option>
-      </select>
+      <label class="input-label">Status:</label>
+      <div class="modern-input-wrapper status-dropdown">
+        <select formControlName="status" class="modern-input">
+          <option value="TO_DO" class="status-option-todo">TO DO</option>
+          <option value="IN_PROGRESS" class="status-option-progress">IN PROGRESS</option>
+          <option value="COMPLETED" class="status-option-done">COMPLETED</option>
+        </select>
+      </div>
     </div>
     
     <button type="submit" class="btn-submit">

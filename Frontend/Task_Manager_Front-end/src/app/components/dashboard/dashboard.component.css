@@ -39,15 +39,15 @@
   }
   
   .todo-header {
-    background-color: #ce310a; /* Blue */
+    background-color: #f47251; 
   }
   
   .inprogress-header {
-    background-color: #1054d3; /* Orange */
+    background-color: #3d71d1; 
   }
   
   .done-header {
-    background-color: #06d6a0; /* Green */
+    background-color: #56d264; 
   }
   
   /* Task card styling */

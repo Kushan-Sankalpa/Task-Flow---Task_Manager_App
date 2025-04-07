@@ -1,160 +1,158 @@
-/* Box layout for the details container */
 .details-container {
-    max-width: 800px;
-    margin: 2rem auto;
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  /* Header styling */
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
-  
-  .title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  /* Status badge styling */
-  .status-badge {
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-  }
-  
-  /* Status badge colors */
-  .status-todo {
-    background-color: red;
-    color: #fff;
-  }
-  
-  .status-in_progress {
-    background-color: rgb(5, 28, 177);
-    color: #fff;
-  }
-  
-  .status-done {
-    background-color: green;
-    color: #fff;
-  }
-  
-  /* Details content styling */
-  .details-content {
-    margin-bottom: 1.5rem;
-  }
-  
-  .detail-item {
-    margin-bottom: 1rem;
-  }
-  
-  .detail-label {
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-    color: #555;
-    margin-bottom: 0.5rem;
-  }
-  
-  .detail-label .icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 0.5rem;
-    fill: #555;
-  }
-  
-  .description {
-    font-size: 0.95rem;
-    color: #666;
-    margin: 0;
-  }
-  
-  /* Meta info styling */
-  .meta-info {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-  
-  .meta-item {
-    display: flex;
-    align-items: center;
-    font-size: 0.9rem;
-    color: #777;
-  }
-  
-  .meta-item .icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 0.5rem;
-    fill: #777;
-  }
-  
-  /* Back button styling */
-  .back-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  /* Back button colors based on task status */
-  .back-todo {
-    background-color: #dce4fd;
-    color: #070707;
-  }
-  
-  .back-inprogress {
-    background-color: #dce4fd;
-    color: #070707;
-  }
-  
-  .back-done {
-    background-color: #dce4fd;
-    color: #070707;
-  }
-  
-  .back-button .arrow-icon {
-    width: 20px;
-    height: 20px;
-    fill: currentColor;
-  }
-  
-  /* Loading State */
-  .loading-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 2rem auto;
-  }
-  
-  .loading-spinner {
-    width: 40px;
-    height: 40px;
-    border: 4px solid #ddd;
-    border-top-color: #4361ee;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin-bottom: 1rem;
-  }
-  
-  @keyframes spin {
-    to { transform: rotate(360deg); }
-  }
-  
+  max-width: 800px;
+  margin: 2rem auto;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header styling */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Status badge styling */
+.status-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+/* Status badge colors */
+.status-todo {
+  background-color: rgb(233, 54, 54);
+  color: #fff;
+}
+
+.status-in_progress {
+  background-color: rgb(27, 47, 174);
+  color: #fff;
+}
+
+.status-done {
+  background-color: rgb(8, 138, 8);
+  color: #fff;
+}
+
+/* Details content styling */
+.details-content {
+  margin-bottom: 1.5rem;
+}
+
+.detail-item {
+  margin-bottom: 1rem;
+}
+
+.detail-label {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.detail-label .icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;
+  fill: #555;
+}
+
+.description {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Meta info styling */
+.meta-info {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.meta-item .icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;
+  fill: #777;
+}
+
+/* Back button styling */
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-todo {
+  background-color: #dce4fd;
+  color: #070707;
+}
+
+.back-inprogress {
+  background-color: #dce4fd;
+  color: #070707;
+}
+
+/* For DONE, ensure a green color */
+.back-done {
+  background-color: #d3f8d3;
+  color: #2b8a3e;
+}
+
+.back-button .arrow-icon {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* Loading State */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem auto;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ddd;
+  border-top-color: #4361ee;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

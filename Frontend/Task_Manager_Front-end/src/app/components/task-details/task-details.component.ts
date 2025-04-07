@@ -17,12 +17,12 @@ export class TaskDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // Get the task id from the URL parameters.
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.taskService.getTask(+id).subscribe({
         next: (data: Task) => {
           this.task = data;
+          console.log('Loaded task:', this.task); // Debug: Check task.status in browser console.
         },
         error: err => {
           console.error("Failed to load task details", err);
@@ -31,7 +31,6 @@ export class TaskDetailsComponent implements OnInit {
     }
   }
 
-  // Optional: Add a method to navigate back to the task list.
   goBack(): void {
     this.router.navigate(['/tasks']);
   }
