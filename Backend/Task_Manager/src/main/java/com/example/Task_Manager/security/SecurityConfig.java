@@ -28,19 +28,20 @@ public class SecurityConfig {
         this.jwtRequestFilter = jwtRequestFilter;
     }
 
+    // Configures HTTP security, including CORS, CSRF, and JWT filter.
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 // Disable CSRF for REST APIs.
                 .csrf(csrf -> csrf.disable())
-                // Enable CORS using default settings (or using our custom CorsConfigurationSource below).
+                // Enable CORS using default settings.
                 .cors(Customizer.withDefaults())
                 // Configure request authorization.
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers("/api/auth/**").permitAll()
                         .anyRequest().authenticated()
                 )
-                // Use stateless session management (JWT-based authentication doesn't use HTTP sessions).
+                // Use stateless session management
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 // Add our custom JWT filter before the default authentication filter.
                 .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
@@ -48,18 +49,20 @@ public class SecurityConfig {
         return http.build();
     }
 
+    // Exposes the authentication manager bean.
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
             throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
 
+    // Provides a BCrypt password encoder.
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
-    // Optional: Provide a custom CORS configuration.
+    // Configures CORS settings.
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();

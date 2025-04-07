@@ -20,17 +20,20 @@ public class TaskService {
         return taskRepository.findByCreatedBy(username);
     }
 
+    // Retrieves a task by its ID.
     public Optional<Task> getTaskById(Long id) {
         return taskRepository.findById(id);
     }
 
-    // When creating a task, record the current user's username.
+    // Creates a new task and records the current user's username as the creator.
     public Task createTask(Task task) {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         task.setCreatedBy(username);
         return taskRepository.save(task);
     }
 
+
+    // Updates an existing task identified by its ID.
     public Task updateTask(Long id, Task taskDetails) {
         Task task = taskRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Task not found with id " + id));
@@ -40,6 +43,7 @@ public class TaskService {
         return taskRepository.save(task);
     }
 
+    // Deletes a task identified by its ID.
     public void deleteTask(Long id) {
         Task task = taskRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Task not found with id " + id));

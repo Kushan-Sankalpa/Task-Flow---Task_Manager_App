@@ -15,7 +15,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 
-@Component  // Registers this class as a Spring Bean.
+@Component
 public class JwtRequestFilter extends OncePerRequestFilter {
 
     @Autowired
@@ -24,6 +24,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     @Autowired
     private JwtUtil jwtUtil;  // Utility class to work with JWT tokens.
 
+    // Filters each request to validate JWT tokens.
     @Override
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
@@ -35,9 +36,9 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         String username = null;
         String jwt = null;
 
-        // Check if the header starts with "Bearer " and extract the token.
+        // Check and extract token from Authorization header.
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
-            jwt = authorizationHeader.substring(7);  // Remove the "Bearer " part.
+            jwt = authorizationHeader.substring(7); // Remove "Bearer " prefix.
             try {
                 username = jwtUtil.extractUsername(jwt);
             } catch (ExpiredJwtException e) {
@@ -45,7 +46,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             }
         }
 
-        // If a username is found and the user is not yet authenticated.
+        // Validate token if username is extracted and not authenticated.
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
 

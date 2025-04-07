@@ -7,5 +7,6 @@ import java.util.List;
 
 @Repository
 public interface TaskRepository extends JpaRepository<Task, Long> {
+    // Finds tasks by the username of the creator.
     List<Task> findByCreatedBy(String createdBy);
 }

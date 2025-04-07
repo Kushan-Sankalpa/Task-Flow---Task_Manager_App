@@ -31,19 +31,15 @@ public class AuthController {
     // Register a new user.
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody User user) {
-        // Check if user already exists using the service.
         if (userService.existsByUsername(user.getUsername())) {
-            // Return HTTP 409 Conflict with a custom error message.
             return ResponseEntity.status(HttpStatus.CONFLICT)
                     .body("User already exists. Please try a different username.");
         }
-
-        // Otherwise, register the new user.
         userService.registerUser(user);
         return ResponseEntity.ok("User registered successfully");
     }
 
-    // Log in and get a JWT token.
+    // Authenticates the user and returns a JWT token.
     @PostMapping("/login")
     public String login(@RequestBody User user) throws Exception {
         try {

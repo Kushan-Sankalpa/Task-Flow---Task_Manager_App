@@ -15,12 +15,13 @@ public class TaskController {
     @Autowired
     private TaskService taskService;
 
-    // Get tasks for the current user.
+    // Retrieves all tasks for the current user.
     @GetMapping
     public List<Task> getAllTasks() {
         return taskService.getAllTasksForCurrentUser();
     }
 
+    // Retrieves a specific task by its ID
     @GetMapping("/{id}")
     public ResponseEntity<Task> getTaskById(@PathVariable Long id) {
         return taskService.getTaskById(id)
@@ -28,11 +29,13 @@ public class TaskController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    // Creates a new task.
     @PostMapping
     public Task createTask(@RequestBody Task task) {
         return taskService.createTask(task);
     }
 
+    // Updates an existing task.
     @PutMapping("/{id}")
     public ResponseEntity<Task> updateTask(@PathVariable Long id, @RequestBody Task taskDetails) {
         try {
@@ -43,6 +46,7 @@ public class TaskController {
         }
     }
 
+    // Deletes a task by its ID.
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteTask(@PathVariable Long id) {
         try {

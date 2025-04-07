@@ -8,11 +8,12 @@ import org.springframework.security.core.userdetails.*;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 
-@Service   // Marks this class as a service for loading user details.
+@Service
 public class CustomUserDetailsService implements UserDetailsService {
     @Autowired
     private UserRepository userRepository;
 
+    // Loads user details by username.
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username)

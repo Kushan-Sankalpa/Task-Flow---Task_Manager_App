@@ -3,10 +3,6 @@ package com.example.Task_Manager.model;
 
 import jakarta.persistence.*;
 
-
-
-
-
 @Entity
 @Table(name = "users")
 
@@ -16,10 +12,10 @@ public class User {
         @GeneratedValue(strategy = GenerationType.IDENTITY)  // Auto-generates the ID.
         private Long id;
 
-        @Column(unique = true, nullable = false) // Username must be unique and not null.
+        @Column(unique = true, nullable = false)
         private String username;
 
-        @Column(nullable = false)  // Password is required.
+        @Column(nullable = false)
         private String password;
 
         // No-argument constructor

@@ -4,12 +4,11 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 
-
 @Entity
 @Table(name = "tasks")
 
 public class Task {
-    @Id // Marks this field as the primary key.
+    @Id //primary key.
     @GeneratedValue(strategy = GenerationType.IDENTITY)  // Auto-generates the ID.
     private Long id;
 
