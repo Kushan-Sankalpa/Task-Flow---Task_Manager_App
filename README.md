@@ -149,7 +149,7 @@ The application uses MySQL as its database:
 ### 1. Login Page  
 *Below is a screenshot of the login page. Replace the placeholder with your image file or URL.*  
 
-![Logo](src/assets/login.png)
+![image alt](https://github.com/Kushan-Sankalpa/Task-Hut---Task_Manager_App/blob/5f0965ce4cb6bf170b4831eb88976b187c2343c1/login.png)
 
 
 ---
