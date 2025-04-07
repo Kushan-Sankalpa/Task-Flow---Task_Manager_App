@@ -149,7 +149,8 @@ The application uses MySQL as its database:
 ### 1. Login Page  
 *Below is a screenshot of the login page. Replace the placeholder with your image file or URL.*  
 
-![Login Page](path/to/login-screenshot.png)
+![Logo](src/assets/login.png)
+
 
 ---
 
@@ -160,9 +161,8 @@ The application uses MySQL as its database:
 
 ---
 
-Simply update the `path/to/login-screenshot.png` and `path/to/register-screenshot.png` with the actual paths or URLs to your screenshot images. This will provide clear visual headers in your README for both the login and register pages.
 
----
+
 
 ## License
 *(Add your license details here. For example, MIT License or any other you choose.)*
