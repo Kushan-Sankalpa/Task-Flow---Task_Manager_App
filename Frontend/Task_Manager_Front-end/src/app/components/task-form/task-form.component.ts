@@ -13,7 +13,7 @@ export class TaskFormComponent implements OnInit {
   isEditMode: boolean = false;
   taskId!: number;
   
-  // Use this to handle the case when user clicks submit without touching the fields.
+  // Tracks if the user attempted to submit the form.
   formSubmitted: boolean = false;
 
   constructor(
@@ -22,6 +22,8 @@ export class TaskFormComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router
   ) {
+
+     // Initialize the form with default values and validators.
     this.taskForm = this.fb.group({
       title: ['', Validators.required],
       description: [''],
@@ -29,11 +31,14 @@ export class TaskFormComponent implements OnInit {
     });
   }
 
+  // Check route parameters to determine if editing an existing task.
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       if (params['id']) {
         this.isEditMode = true;
         this.taskId = +params['id'];
+
+        // Load the task data and patch the form values.
         this.taskService.getTask(this.taskId).subscribe(task => {
           this.taskForm.patchValue(task);
         });
@@ -41,6 +46,7 @@ export class TaskFormComponent implements OnInit {
     });
   }
 
+  // Handle form submission for creating or updating a task.
   onSubmit(): void {
     // Flag to indicate the user has attempted submission.
     this.formSubmitted = true;
@@ -53,11 +59,13 @@ export class TaskFormComponent implements OnInit {
 
     const taskData: Task = this.taskForm.value;
 
+     // Update existing task.
     if (this.isEditMode) {
       this.taskService.updateTask(this.taskId, taskData).subscribe(() => {
         this.router.navigate(['/tasks']);
       });
     } else {
+       // Create a new task.
       this.taskService.createTask(taskData).subscribe(() => {
         this.router.navigate(['/tasks']);
       });

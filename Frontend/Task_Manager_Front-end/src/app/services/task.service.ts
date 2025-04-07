@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-// Define what a Task looks like.
+// Define the structure of a Task.
 export interface Task {
   id: number;
   title: string;

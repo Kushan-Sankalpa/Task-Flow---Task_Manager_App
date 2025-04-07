@@ -13,13 +13,13 @@ export class RegisterComponent implements OnInit {
   error: string = '';
   success: string = '';
   
-  // Point this to your Spring Boot registration endpoint
+  // URL for the Spring Boot registration endpoint.
   private apiUrl = 'http://localhost:8080/api/auth/register';
 
   constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {}
 
+  // Initialize the registration form with custom validator.
   ngOnInit() {
-    // Create a form with username, password, and confirmPassword.
     this.registerForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -33,6 +33,7 @@ export class RegisterComponent implements OnInit {
       ? null : { mismatch: true };
   }
 
+   // Handle form submission for user registration.
   onSubmit() {
     // Clear any existing token before attempting registration.
     localStorage.removeItem('token');
@@ -52,7 +53,7 @@ export class RegisterComponent implements OnInit {
     }
   
     const { username, password } = this.registerForm.value;
-    // Tell HttpClient to expect a text response instead of JSON.
+     // Post the registration data and expect a text response.
     this.http.post(this.apiUrl, { username, password }, { responseType: 'text' })
       .subscribe({
         next: (response: string) => {

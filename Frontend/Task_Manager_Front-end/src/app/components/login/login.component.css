@@ -119,7 +119,7 @@
 }
 
 .error-message {
-  color: red; /* Always red */
+  color: red; 
   font-size: 0.8rem;
   margin-top: 0.3rem;
 }
@@ -145,7 +145,7 @@
 .login-button {
   width: 100%;
   padding: 12px;
-  background: linear-gradient(135deg, #3d56b2, #650ea8); /* Darker gradient */
+  background: linear-gradient(135deg, #3d56b2, #650ea8);
   color: white;
   border: none;
   border-radius: 8px;
@@ -254,14 +254,14 @@
 
 .logo-icon i {
   color: #279b09;
-  font-size: 1.75rem; /* Increased icon size */
+  font-size: 1.75rem; 
 }
 
-/* Title styling */
+
 .app-title {
   margin: 0;
   color: #0e37ed;
-  font-size: 1.5rem;  /* Adjust as needed */
+  font-size: 1.5rem; 
   font-weight: 700;
   letter-spacing: 0.5px;
 }

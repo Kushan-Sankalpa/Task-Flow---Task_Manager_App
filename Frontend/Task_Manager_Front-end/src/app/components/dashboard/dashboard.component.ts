@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(private taskService: TaskService) {}
 
+  // On initialization, load all tasks and separate them by status.
   ngOnInit(): void {
     this.taskService.getTasks().subscribe((allTasks: Task[]) => {
       this.todoTasks = allTasks.filter((t: Task) => t.status === 'TO_DO');

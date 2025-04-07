@@ -74,8 +74,8 @@
   
   .task-icon img {
     width: 50px;
-    height: auto;       /* Let the image keep its aspect ratio */
-    border-radius: 0;   /* Remove or reduce rounding if you want a normal rectangle */
+    height: auto;       
+    border-radius: 0;   
     object-fit: contain; 
   }
   
